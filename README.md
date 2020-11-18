@@ -14,7 +14,7 @@ You need to follow some steps in order to run this application in your machine:
 
 1. Install PHP 7.4
 
-2. Install composer](https://getcomposer.org/) locally
+2. Install [composer](https://getcomposer.org/) locally
 
 3. Install [Visual Studio Code](https://code.visualstudio.com/) so you can play with the codebase
 
@@ -71,7 +71,7 @@ When this is done we will be able to open our application in the browser by visi
 
 ## Useful commands when using Homestead for development
 
-You can check the running VMs with
+You can check the running VMs with:
 
 ```
 $ vagrant global-status
@@ -105,5 +105,5 @@ $ phpunit
 You can install new packages through `composer`. First ssh into the VM as shown above and then run:
 
 ```
-$ composer require PACKAGES_NAME
+$ composer require PACKAGE_NAME
 ```
