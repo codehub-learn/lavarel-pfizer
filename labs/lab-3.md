@@ -18,7 +18,7 @@ SSH into the VM and navigate into the Laravel's files and folders
 
 ### Step 3
 
-Launch vagrant and check the available options
+Launch artisan and check the available options
 
 ### Step 4
 
