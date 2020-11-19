@@ -4,8 +4,9 @@ In this lab we will:
 
 - launch Vagrant and interact with it
 - SSH into the VM and play with `artisan` tool
-- create our first Model
 - create our first Controller
+- tweak User Model
+- create our first Model and migration
 
 ### Step 1
 
@@ -29,6 +30,12 @@ Run some commands to:
 ### Step 5
 
 Create `UsersController` through artisan
+
+```
+$ php artisan make:controller UsersController
+```
+
+Check that the controller was created successfully
 
 ### Step 6
 
@@ -64,3 +71,21 @@ Run the migration command again and check the `users` table
 ### Step 13
 
 Create a computed property in the `User` model named `fullName` that will be the created after concatenating the first name with last name. Declare it in the model so it is added in the JSON output accordingly
+
+### Step 14
+
+Create a Model named `Skill` and its migration with:
+
+```
+$ php artisan make:model Skill -m
+```
+
+Check that the model and the migration files were created successfully
+
+### Step 15
+
+Add a `string` field named `title` in the migration script
+
+### Step 16
+
+Run the migration command again and check the `skills` table
