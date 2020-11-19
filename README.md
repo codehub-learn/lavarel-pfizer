@@ -107,3 +107,5 @@ You can install new packages through `composer`. First ssh into the VM as shown 
 ```
 $ composer require PACKAGE_NAME
 ```
+
+You can find more details about Vagrant commands in the official [docs](https://www.vagrantup.com/docs/cli).
