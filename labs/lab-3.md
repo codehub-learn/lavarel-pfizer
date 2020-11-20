@@ -43,7 +43,7 @@ Create a method named `index` that returns the word `users`
 
 ### Step 7
 
-Create a route under `routes/api.php` for `/users` and connect the `index` method living in `UsersController` controller with route `/users`. Check the result in the browser
+Create a route under `routes/api.php` for `/api/users` and connect the `index` method living in `UsersController` controller with route `/users`. Check the result in the browser
 
 ### Step 8
 

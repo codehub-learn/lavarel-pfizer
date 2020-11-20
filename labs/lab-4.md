@@ -60,7 +60,7 @@ Go to `index` method in `UsersController` and use Eloquent to get all available 
 
 ### Step 11
 
-Add another route under `/users/:id` and bind a new method named `show` in `UsersController`. Use Eloquent to spot the user that has this `id` passed as a parameter and return it
+Add another route under `/api/users/:id` and bind a new method named `show` in `UsersController`. Use Eloquent to spot the user that has this `id` passed as a parameter and return it
 
 ### Step 12
 
@@ -68,8 +68,8 @@ Create controllers `SkillsController` and `UsersSkillsController` through artisa
 
 ### Step 13
 
-Add another route under `/skills` and bind a new method named `index` in `SkillsController`. Use Eloquent to retrieve all records from `skills` table and return them
+Add another route under `/api/skills` and bind a new method named `index` in `SkillsController`. Use Eloquent to retrieve all records from `skills` table and return them
 
 ### Step 14
 
-Add another route under `/users/:id/skills` and bind a new method named `index` in `UsersSkillsController`. Use Eloquent to spot the user that has this `id` passed as a parameter and return its skills
+Add another route under `/api/users/:id/skills` and bind a new method named `index` in `UsersSkillsController`. Use Eloquent to spot the user that has this `id` passed as a parameter and return its skills

@@ -31,7 +31,7 @@ Add a new `Request` class named `UsersUpdateRequest` to validate inputs for `upd
 
 ### Step 5
 
-Add endpoint POST `/skills` in `SkillsController@store` and use Eloquent to create new `skills`
+Add endpoint POST `/api/skills` in `SkillsController@store` and use Eloquent to create new `skills`
 
 Use `apiResource` to declare this route
 
@@ -45,7 +45,7 @@ Remember that each skill should be unique in the `skills` table
 
 ### Step 7
 
-Add endpoint PUT `/skills/:id` in `UsersController@update` and use Eloquent to update an existing `skill`
+Add endpoint PUT `/api/skills/:id` in `UsersController@update` and use Eloquent to update an existing `skill`
 
 Use `apiResource` to declare this route
 
@@ -59,11 +59,11 @@ Remember that each skill should be unique in the `skills` table
 
 ### Step 9
 
-Add endpoint DELETE `/skills/:id` in `UsersController@destroy` and use Eloquent to delete an existing `skill`
+Add endpoint DELETE `/api/skills/:id` in `UsersController@destroy` and use Eloquent to delete an existing `skill`
 
 ### Step 10
 
-Add endpoint POST `/users/:id/skills` in `UsersSkillsController@store` and use Eloquent to attach an array of `skills` to a `user`
+Add endpoint POST `/api/users/:id/skills` in `UsersSkillsController@store` and use Eloquent to attach an array of `skills` to a `user`
 
 Use `apiResource` to declare this route
 
@@ -107,4 +107,4 @@ Add endpoints for `index`, `show`, `store`, `update` and `destroy` methods of `U
 
 ### Step 18
 
-Add requests classes through Artisan to validate data sent over to the API through endpoints POST `/users/:user/vacations` and PUT `/users/:user/vacations/:vacation`
+Add requests classes through Artisan to validate data sent over to the API through endpoints POST `/api/users/:user/vacations` and PUT `/users/:user/vacations/:vacation`
