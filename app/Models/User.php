@@ -17,7 +17,8 @@ class User extends Authenticatable
      * @var array
      */
     protected $fillable = [
-        'name',
+        'firstName',
+        'lastName',
         'email',
         'password',
     ];
@@ -41,9 +42,13 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
     ];
 
-    protected $appends = ['full_name'];
+    protected $appends = ['fullName'];
 
     public function getFullNameAttribute() {
         return "{$this->attributes['firstName']} {$this->attributes['lastName']}";
+    }
+
+    public function skills() {
+        return $this->belongsToMany(Skill::class, 'users_skills');
     }
 }
