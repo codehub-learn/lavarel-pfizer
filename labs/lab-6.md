@@ -13,6 +13,7 @@ In this lab we will:
 - add a class named `Department`. Departments should have a `title` attribute
 - each user should belong to one department and each department should have many users
 - each department should have a manager responsible for it. This manager is one of the users
+- a user can be a manager of just one department
 - create migration, factory and seeder files for the departments
 - add a `DepartmentsController` to run CRUD operations for departments
 - add a method to define a department's manager inside `DepartmentsController`
@@ -22,13 +23,13 @@ In this lab we will:
 
 As a user, I should be able to add vacations for users through the API.
 
-As a user, I should not be to send over invalid data when running CRUD operations through all API endpoints.
-
 As a user, I should be able to create departments through the API.
 
 As a user, I should be able to bind departments with users through the API.
 
 As a user, I should be able to define each department's manager through the API.
+
+As a user, I should not be able to send over invalid data when running CRUD operations through all API endpoints.
 
 ### Step 1
 
