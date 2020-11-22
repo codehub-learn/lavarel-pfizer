@@ -8,6 +8,10 @@ In this lab we will:
 - declare routes with `apiResource`
 - add all REST methods for `UsersController`
 
+### User Story
+
+As a user, I should be able to run all CRUD operations for users through the API.
+
 ### Step 1
 
 Launch a brand new VM with Vagrant if you haven't already done so
@@ -59,3 +63,7 @@ Use [curl](https://gist.github.com/subfuzion/08c5d85437d5d4f00e58) to send data 
 Use Eloquent to delete a `user` through `destroy` method
 
 Use [curl](https://gist.github.com/subfuzion/08c5d85437d5d4f00e58) to use the DELETE `/api/users/:id` endpoint
+
+### Notes
+
+If you find it more convenient compared with Curl, feel free to use [httpie](https://httpie.io/) cli tool to test your API endpoints.

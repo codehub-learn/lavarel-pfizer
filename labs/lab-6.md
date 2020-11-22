@@ -10,6 +10,25 @@ In this lab we will:
 - create `UsersVacationsController` through artisan
 - add endpoints for creating, updating and deleting a vacation
 - validate sent data for `create` and `update` methods of `SkillsController` and `UsersVacationsController` through Requests classes
+- add a class named `Department`. Departments should have a `title` attribute
+- each user should belong to one department and each department should have many users
+- each department should have a manager responsible for it. This manager is one of the users
+- create migration, factory and seeder files for the departments
+- add a `DepartmentsController` to run CRUD operations for departments
+- add a method to define a department's manager inside `DepartmentsController`
+- add a `DepartmentsUsersController` and add endpoints for adding and removing users from departments
+
+### User Story
+
+As a user, I should be able to add vacations for users through the API.
+
+As a user, I should not be to send over invalid data when running CRUD operations through all API endpoints.
+
+As a user, I should be able to create departments through the API.
+
+As a user, I should be able to bind departments with users through the API.
+
+As a user, I should be able to define each department's manager through the API.
 
 ### Step 1
 
@@ -108,3 +127,31 @@ Add endpoints for `index`, `show`, `store`, `update` and `destroy` methods of `U
 ### Step 18
 
 Add requests classes through Artisan to validate data sent over to the API through endpoints POST `/api/users/:user/vacations` and PUT `/users/:user/vacations/:vacation`
+
+### Step 19
+
+Create the `Department` model alongside a migration, factory and seeder.
+
+### Step 20
+
+Create the `DepartmentsController` and add endpoints to run CRUD operations for departments
+
+### Step 21
+
+Add a method to define a department's manager inside `DepartmentsController`
+
+### Step 22
+
+Add a `DepartmentsUsersController` and add endpoints for adding and removing users from departments
+
+### Step 23
+
+Ensure that there are migrations, factories and seeders for all models and relationships
+
+### Step 24
+
+Ensure that there are Requests classes protecting all the endpoints you created so far so that no-one can enter invalid data
+
+### Notes
+
+If you find it more convenient compared with Curl, feel free to use [httpie](https://httpie.io/) cli tool to test your API endpoints.
