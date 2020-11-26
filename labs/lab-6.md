@@ -65,7 +65,7 @@ Remember that each skill should be unique in the `skills` table
 
 ### Step 7
 
-Add endpoint PUT `/api/skills/:id` in `UsersController@update` and use Eloquent to update an existing `skill`
+Add endpoint PUT `/api/skills/:id` in `SkillsController@update` and use Eloquent to update an existing `skill`
 
 Use `apiResource` to declare this route
 
@@ -79,7 +79,7 @@ Remember that each skill should be unique in the `skills` table
 
 ### Step 9
 
-Add endpoint DELETE `/api/skills/:id` in `UsersController@destroy` and use Eloquent to delete an existing `skill`
+Add endpoint DELETE `/api/skills/:id` in `SkillsController@destroy` and use Eloquent to delete an existing `skill`
 
 ### Step 10
 
