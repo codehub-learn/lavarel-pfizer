@@ -3,16 +3,41 @@
 namespace App\Http\Controllers\API;
 
 use App\Http\Controllers\Controller;
+use App\Http\Resources\SkillResource;
 use App\Models\User;
-use Illuminate\Http\Request;
+use App\Http\Requests\UsersSkills\StoreRequest;
 
-class UsersSkillsController extends Controller
-{
-    public function index($id) {
-        $user = User::with('skills')->findOrFail($id);
+class UsersSkillsController extends Controller {
+    /**
+     * Get a specific user skills
+     *
+     * @param User $user
+     *
+     * @return \Illuminate\Http\JsonResponse
+     */
+    public function index(User $user) {
+        $user->load('skills');
 
-        return response()->json([
-            'skills' => $user->skills
-        ]);
+        $skills = SkillResource::collection($user->skills);
+
+        return response()->json(compact('skills'));
+    }
+
+    /**
+     * Attach some skills to a user
+     *
+     * @param StoreRequest $request
+     * @param User         $user
+     *
+     * @return \Illuminate\Http\JsonResponse
+     */
+    public function store(StoreRequest $request, User $user) {
+        $user->skills()->sync($request->input('skills'));
+
+        $user->load('skills');
+
+        $skills = SkillResource::collection($user->skills);
+
+        return response()->json(compact('skills'), 201);
     }
 }
