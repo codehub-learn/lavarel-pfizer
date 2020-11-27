@@ -21,6 +21,17 @@ class SkillsController extends Controller {
     }
 
     /**
+     * Return a skill's details
+     *
+     * @param Skill $skill
+     *
+     * @return \Illuminate\Http\JsonResponse
+     */
+    public function show(Skill $skill) {
+        return response()->json(['skill' => new SkillResource($skill)], 200);
+    }
+
+    /**
      * Create a new skill
      *
      * @param StoreRequest $request

@@ -21,7 +21,7 @@ class UsersSkillsTest extends TestCase {
     /**
      * @test
      */
-    public function is_should_return_a_single_user_skills() {
+    public function it_should_return_a_single_user_skills() {
         $user = $this->users->random();
 
         $response = $this->json('GET', "/api/users/{$user->id}/skills");
@@ -32,7 +32,7 @@ class UsersSkillsTest extends TestCase {
     /**
      * @test
      */
-    public function is_should_attach_a_group_of_skills_to_a_user() {
+    public function it_should_attach_a_group_of_skills_to_a_user() {
         $user = $this->users->random();
         $skills = Skill::all()->random(5)->pluck('id');
 

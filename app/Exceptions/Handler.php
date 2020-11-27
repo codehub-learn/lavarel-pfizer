@@ -2,18 +2,18 @@
 
 namespace App\Exceptions;
 
+use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
+use Illuminate\Database\Eloquent\ModelNotFoundException;
 use Illuminate\Foundation\Exceptions\Handler as ExceptionHandler;
 use Throwable;
 
-class Handler extends ExceptionHandler
-{
+class Handler extends ExceptionHandler {
     /**
      * A list of the exception types that are not reported.
      *
      * @var array
      */
-    protected $dontReport = [
-        //
+    protected $dontReport = [//
     ];
 
     /**
@@ -31,12 +31,19 @@ class Handler extends ExceptionHandler
      *
      * @return void
      */
-    public function register()
-    {
-        $this->reportable(function (Throwable $e) {
-            clock('marios');
-            clock($e->getMessage());
-            //
+    public function register() {
+        $this->renderable(function (Throwable $e, $request) {
+            if ($request->is('api/*')) {
+                if ($e instanceof ModelNotFoundException or $e instanceof NotFoundHttpException) {
+                    return response()->json([
+                        'message' => $e->getMessage(),
+                    ], 404);
+                }
+
+                return response()->json([
+                    'message' => $e->getMessage(),
+                ], 500);
+            }
         });
     }
 }

@@ -22,7 +22,7 @@ class SkillsTest extends TestCase
     /**
      * @test
      */
-    public function is_should_return_a_list_of_skills()
+    public function it_should_return_a_list_of_skills()
     {
         $response = $this->json('GET', '/api/skills');
 
@@ -32,7 +32,7 @@ class SkillsTest extends TestCase
     /**
      * @test
      */
-    public function is_should_create_a_new_skill()
+    public function it_should_create_a_new_skill()
     {
         $title = Factory::create()->words(2, true);
         $data = compact('title');
@@ -46,7 +46,7 @@ class SkillsTest extends TestCase
     /**
      * @test
      */
-    public function is_should_update_a_single_skill() {
+    public function it_should_update_a_single_skill() {
         $skill = $this->skills->random();
         $title = Factory::create()->words(2, true);
         $data = compact('title');
@@ -61,7 +61,7 @@ class SkillsTest extends TestCase
     /**
      * @test
      */
-    public function is_should_delete_a_single_skill() {
+    public function it_should_delete_a_single_skill() {
         $skill = $this->skills->random();
 
         $response = $this->json('DELETE', "/api/skills/{$skill->id}");

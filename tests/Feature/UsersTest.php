@@ -22,7 +22,7 @@ class UsersTest extends TestCase {
     /**
      * @test
      */
-    public function is_should_return_a_list_of_users() {
+    public function it_should_return_a_list_of_users() {
         $response = $this->json('GET', '/api/users');
 
         $response->assertStatus(200)->assertJson(['users' => []]);
@@ -31,7 +31,7 @@ class UsersTest extends TestCase {
     /**
      * @test
      */
-    public function is_should_return_a_single_user() {
+    public function it_should_return_a_single_user() {
         $user = $this->users->random();
         $response = $this->json('GET', "/api/users/{$user->id}");
 
@@ -41,7 +41,7 @@ class UsersTest extends TestCase {
     /**
      * @test
      */
-    public function is_should_create_a_new_user() {
+    public function it_should_create_a_new_user() {
         $factory = Factory::create();
         $firstName = $factory->firstName;
         $lastName = $factory->lastName;
@@ -59,7 +59,7 @@ class UsersTest extends TestCase {
     /**
      * @test
      */
-    public function is_should_update_a_single_user() {
+    public function it_should_update_a_single_user() {
         $user = $this->users->random();
         $factory = Factory::create();
         $firstName = $factory->firstName;
@@ -77,7 +77,7 @@ class UsersTest extends TestCase {
     /**
      * @test
      */
-    public function is_should_delete_a_single_user() {
+    public function it_should_delete_a_single_user() {
         $user = $this->users->random();
 
         $response = $this->json('DELETE', "/api/users/{$user->id}");

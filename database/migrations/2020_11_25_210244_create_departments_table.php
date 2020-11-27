@@ -16,7 +16,7 @@ class CreateDepartmentsTable extends Migration
         Schema::create('departments', function (Blueprint $table) {
             $table->id();
             $table->string('title');
-            $table->foreignId('manager_id')->references('id')->on('users')->cascadeOnDelete();
+            $table->foreignId('manager_id')->nullable()->references('id')->on('users')->cascadeOnDelete();
             $table->timestamps();
         });
     }
