@@ -16,8 +16,6 @@ class UsersSkillsController extends Controller {
      * @return \Illuminate\Http\JsonResponse
      */
     public function index(User $user) {
-        $user->load('skills');
-
         $skills = SkillResource::collection($user->skills);
 
         return response()->json(compact('skills'));

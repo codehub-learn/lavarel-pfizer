@@ -2,11 +2,13 @@
 
 namespace App\Http\Controllers\API;
 
+use App\Exceptions\SkillNotFoundException;
 use App\Http\Controllers\Controller;
 use App\Http\Resources\SkillResource;
 use App\Models\Skill;
 use App\Http\Requests\Skill\StoreRequest;
 use App\Http\Requests\Skill\UpdateRequest;
+use Illuminate\Support\Facades\Log;
 
 class SkillsController extends Controller {
     /**

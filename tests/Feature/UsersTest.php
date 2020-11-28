@@ -13,10 +13,12 @@ class UsersTest extends TestCase {
 
     private $users;
 
+    protected $seed = true;
+
     protected function setUp(): void {
         parent::setUp();
 
-        $this->users = User::factory()->times(10)->create();
+        $this->users = User::all();
     }
 
     /**
@@ -46,7 +48,8 @@ class UsersTest extends TestCase {
         $firstName = $factory->firstName;
         $lastName = $factory->lastName;
         $email = $factory->email;
-        $password = $factory->password;
+        $password = $factory->password(8);
+
         $data = compact('firstName', 'lastName', 'email', 'password');
 
         $response = $this->json('POST', '/api/users', $data);
@@ -84,6 +87,6 @@ class UsersTest extends TestCase {
 
         $response->assertStatus(204);
 
-        $this->assertDatabaseMissing('users', array_merge(['id' => $user->id]));
+        $this->assertDeleted($user);
     }
 }

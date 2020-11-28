@@ -87,9 +87,6 @@ class UsersVacationsTest extends TestCase {
 
         $response->assertStatus(204);
 
-        $this->assertDatabaseMissing('vacations', [
-            'id' => $vacation->id,
-            'user_id' => $user->id,
-        ]);
+        $this->assertDeleted($vacation);
     }
 }

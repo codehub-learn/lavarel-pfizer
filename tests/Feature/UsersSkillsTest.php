@@ -12,10 +12,12 @@ class UsersSkillsTest extends TestCase {
 
     private $users;
 
+    protected $seed = true;
+
     protected function setUp(): void {
         parent::setUp();
 
-        $this->users = User::factory()->times(10)->hasAttached(Skill::factory()->count(2))->create();
+        $this->users = User::all();
     }
 
     /**

@@ -33,19 +33,30 @@ class Handler extends ExceptionHandler {
      * @return void
      */
     public function register() {
+        $this->reportable(function (Throwable $e) {
+            //
+        });
+
         $this->renderable(function (Throwable $e, $request) {
             if ($request->is('api/*')) {
-                if ($e instanceof ModelNotFoundException or $e instanceof NotFoundHttpException) {
+                if ($e instanceof NotFoundHttpException) {
                     return response()->json([
-                        'message' => $e->getMessage(),
+                        'message' => 'Model not found',
+                        'original_error_message' => $e->getMessage(),
                     ], 404);
                 }
 
                 if ($e instanceof ValidationException) {
                     return response()->json([
-                        'message' => $e->getMessage(),
+                        'message' => 'Validation failed',
                         'errors' => $e->errors()
                     ], 400);
+                }
+
+                if ($e instanceof SkillNotFoundException) {
+                    return response()->json([
+                        'message' => $e->getMessage()
+                    ], 500);
                 }
 
                 return response()->json([

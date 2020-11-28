@@ -14,10 +14,12 @@ class DepartmentsTest extends TestCase
 
     private $departments;
 
+    protected $seed = true;
+
     protected function setUp(): void {
         parent::setUp();
 
-        $this->departments = Department::factory()->times(10)->create();
+        $this->departments = Department::all();
     }
 
     /**
@@ -71,6 +73,6 @@ class DepartmentsTest extends TestCase
 
         $response->assertStatus(204);
 
-        $this->assertDatabaseMissing('departments', array_merge(['id' => $department->id]));
+        $this->assertDeleted($department);
     }
 }

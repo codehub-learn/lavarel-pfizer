@@ -13,10 +13,12 @@ class SkillsTest extends TestCase
 
     private $skills;
 
+    protected $seed = true;
+
     protected function setUp(): void {
         parent::setUp();
 
-        $this->skills = Skill::factory()->times(10)->create();
+        $this->skills = Skill::all();
     }
 
     /**
@@ -68,6 +70,6 @@ class SkillsTest extends TestCase
 
         $response->assertStatus(204);
 
-        $this->assertDatabaseMissing('skills', array_merge(['id' => $skill->id]));
+        $this->assertDeleted($skill);
     }
 }
